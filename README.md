@@ -336,7 +336,6 @@ sudo docker rm $(sudo docker ps -aq)
 Uninstall Docker packages: The package management method depends on your Linux distribution. Below are the commands for some common distributions:
 
 ```bash
-Copy code
 sudo apt-get purge docker-ce docker-ce-cli containerd.io
 ```
 
@@ -357,6 +356,8 @@ Remove the Docker Compose binary: Use the following command to remove the Docker
 
 ```bash
 sudo rm /usr/local/bin/docker-compose
+
+sudo rm /usr/bin/docker-compose
 ```
 
 ## Cleaning up iptables:
@@ -382,3 +383,26 @@ sudo iptables -P OUTPUT ACCEPT
 ```
 
 By following these steps, you should be able to uninstall Docker and Docker Compose from your system and clean up the iptables rules. Remember to exercise caution and ensure that you have a backup of any important data before proceeding with the uninstallation.
+
+## View the firewalld configuration
+
+```bash
+sudo sh -c "cd /etc/firewalld && cat firewalld.conf"
+sudo sh -c "cd /etc/firewalld && cat lockdown-whitelist.xml"
+```
+
+## Restart firewalld
+
+```bash
+sudo systemctl restart firewalld
+
+sudo systemctl status firewalld
+```
+
+## Remaining firewalld errors
+
+```bash
+firewalld[9854]: WARNING: COMMAND_FAILED: '/usr/sbin/iptables -w10 -D FORWARD -i docker_gwbridge -o docker_gwbridge -j ACCEPT' failed: iptables: Bad rule (does a matching rule exist in that chain?).
+firewalld[9854]: WARNING: COMMAND_FAILED: '/usr/sbin/iptables -w10 -D FORWARD -i docker0 -o docker0 -j DROP' failed: iptables: Bad rule (does a matching rule exist in that chain?).
+firewalld[9854]: WARNING: COMMAND_FAILED: '/usr/sbin/iptables -w10 -D FORWARD -i docker0 -o docker0 -j DROP' failed: iptables: Bad rule (does a matching rule exist in that chain?).
+```
