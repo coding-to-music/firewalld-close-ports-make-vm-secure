@@ -8,15 +8,6 @@ https://github.com/coding-to-music/firewalld-close-ports-make-vm-secure
 From / By 
 
 
-## Environment variables:
-
-```java
-```
-
-## user interfaces:
-
-- Grafana http://localhost:3000
-
 ## GitHub
 
 ```java

@@ -1,0 +1,12 @@
+{
+  "name": "firewalld-close-ports-make-vm-secure",
+  "version": "1.0.0",
+  "description": "# 🚀 Close down firewalld ports and make VM more secure 🚀",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "git add . && git commit -m Build && git push"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
