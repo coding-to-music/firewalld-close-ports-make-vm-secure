@@ -406,3 +406,10 @@ firewalld[9854]: WARNING: COMMAND_FAILED: '/usr/sbin/iptables -w10 -D FORWARD -i
 firewalld[9854]: WARNING: COMMAND_FAILED: '/usr/sbin/iptables -w10 -D FORWARD -i docker0 -o docker0 -j DROP' failed: iptables: Bad rule (does a matching rule exist in that chain?).
 firewalld[9854]: WARNING: COMMAND_FAILED: '/usr/sbin/iptables -w10 -D FORWARD -i docker0 -o docker0 -j DROP' failed: iptables: Bad rule (does a matching rule exist in that chain?).
 ```
+
+## Set up aliases to check ports
+
+```
+alias ports1='sudo firewall-cmd --list-all'
+alias ports2='sudo systemctl status firewalld'
+```
